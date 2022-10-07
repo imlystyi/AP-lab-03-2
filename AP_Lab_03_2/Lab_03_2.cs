@@ -13,27 +13,29 @@ namespace AP_Lab_03_2
         {
             Console.OutputEncoding = System.Text.Encoding.Default;
 
-            double a, b, c, x, A, B;
-
             Console.Write("Введіть змінні \"a\", \"b\", \"c\" та \"x\" по черзі через крапку з комою: ");
 
             string[] varArray = Console.ReadLine().Split(';');
 
-            a = Double.Parse(varArray[0].Replace('.', ','));
-            b = Double.Parse(varArray[1].Replace('.', ','));
-            c = Double.Parse(varArray[2].Replace('.', ','));
-            x = Double.Parse(varArray[3].Replace('.', ','));
+            double a = Double.Parse(varArray[0].Replace('.', ',')),
+                b = Double.Parse(varArray[1].Replace('.', ',')),
+                c = Double.Parse(varArray[2].Replace('.', ',')),
+                x = Double.Parse(varArray[3].Replace('.', ','));
 
             // Спосіб 1: розгалуження в скороченій формі.
+            double A;
+
             if (c < 0 && x != 0)
                 A = (-a * x) - c;
 
-            if (c > 0 && x == 0)
+            else if (c > 0 && x == 0)
                 A = (x - a) / -c;
 
             else A = (b * x) / (c - a);
 
             // Спосіб 2: розгалуження в повній формі.
+            double B;
+
             if (c < 0 && x != 0)
                 B = (-a * x) - c;
 

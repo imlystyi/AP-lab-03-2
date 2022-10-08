@@ -12,6 +12,7 @@ namespace AP_Lab_03_2
         static void Main()
         {
             Console.OutputEncoding = System.Text.Encoding.Default;
+            double F = 0;
 
             Console.Write("Введіть змінні \"a\", \"b\", \"c\" та \"x\" по черзі через крапку з комою: ");
 
@@ -23,33 +24,30 @@ namespace AP_Lab_03_2
                 x = Double.Parse(varArray[3].Replace('.', ','));
 
             // Спосіб 1: розгалуження в скороченій формі.
-            double A;
-
             if (c < 0 && x != 0)
-                A = (-a * x) - c;
+                F = (-a * x) - c;
 
-            else if (c > 0 && x == 0)
-                A = (x - a) / -c;
+            if (c > 0 && x == 0)
+                F = (x - a) / -c;
 
-            else A = (b * x) / (c - a);
+            if ((c > 0 && x != 0) || (c < 0 && x == 0))
+                F = (b * x) / (c - a);
+
+            Console.Write($"Отримане першим спосбом значення для \"F\": {F};\n");
 
             // Спосіб 2: розгалуження в повній формі.
-            double B;
-
             if (c < 0 && x != 0)
-                B = (-a * x) - c;
+                F = (-a * x) - c;
 
             else
             {
                 if (c > 0 && x == 0)
-                    B = (x - a) / -c;
+                    F = (x - a) / -c;
 
-                else B = (b * x) / (c - a);
+                else F = (b * x) / (c - a);
             }
 
-            // Частина виведення.
-            Console.Write($"Отримане першим спосбом значення для \"F\": {A};\n" +
-                $"отримане другим способом значення для \"F\": {B}");
+            Console.Write($"отримане другим способом значення для \"F\": {F}");
 
             Console.ReadLine();
         }
